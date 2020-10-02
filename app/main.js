@@ -5,6 +5,11 @@ const NewComponent = () => {
   return (
     <>
       <h1>Thanks for visiting!!!!</h1>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit
+        corrupti consequatur libero unde fuga officia aspernatur, enim nesciunt
+        blanditiis sint.
+      </p>
     </>
   );
 };
