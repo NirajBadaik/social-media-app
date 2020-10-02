@@ -1,15 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+//my components
+import Header from "./components/Header";
+import HomeGuest from "./components/HomeGuest";
+import Footer from "./components/Footer";
 const NewComponent = () => {
   return (
     <>
-      <h1>Thanks for visiting!!!!</h1>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit
-        corrupti consequatur libero unde fuga officia aspernatur, enim nesciunt
-        blanditiis sint.
-      </p>
+      <Header />
+      <HomeGuest />
+      <Footer />
     </>
   );
 };
