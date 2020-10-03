@@ -8,7 +8,7 @@ import HomeGuest from "./components/HomeGuest";
 import Footer from "./components/Footer";
 import About from "./components/About";
 import Terms from "./components/Terms";
-const NewComponent = () => {
+const Main = () => {
   return (
     <BrowserRouter>
       <Header />
@@ -28,8 +28,8 @@ const NewComponent = () => {
   );
 };
 
-export default NewComponent;
-ReactDOM.render(<NewComponent />, document.querySelector("#app"));
+export default Main;
+ReactDOM.render(<Main />, document.querySelector("#app"));
 
 if (module.hot) {
   module.hot.accept();
