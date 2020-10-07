@@ -1,17 +1,20 @@
 import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
 import Page from "./Page";
 import Axios from "axios";
-const CreatePost = () => {
+const CreatePost = (props) => {
   const [title, setTitle] = useState();
   const [body, setBody] = useState();
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await Axios.post("/create-post", {
+      const response = await Axios.post("/create-post", {
         title,
         body,
         token: localStorage.getItem("socialFinderToken"),
       });
+      props.history.push(`/post/${response.data}`);
+      //redirect to new post url
       console.log("post created");
     } catch (e) {
       console.log("error creating post");
@@ -59,4 +62,4 @@ const CreatePost = () => {
   );
 };
 
-export default CreatePost;
+export default withRouter(CreatePost);

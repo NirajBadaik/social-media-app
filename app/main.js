@@ -11,6 +11,7 @@ import About from "./components/About";
 import Terms from "./components/Terms";
 import Home from "./components/Home";
 import CreatePost from "./components/CreatePost";
+import ViewSinglePost from "./components/ViewSinglePost";
 const Main = () => {
   const [isLoggedin, setIsLoggedIn] = useState(
     Boolean(localStorage.getItem("socialFinderToken"))
@@ -24,6 +25,9 @@ const Main = () => {
         </Route>
         <Route path="/create-post">
           <CreatePost />
+        </Route>
+        <Route path="/post/:id">
+          <ViewSinglePost />
         </Route>
         <Route path="/about-us">
           <About />
