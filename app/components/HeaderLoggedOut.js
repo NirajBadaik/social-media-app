@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Axios from "axios";
+import DispatchContext from "../DispatchContext";
 const HeaderLoggedOut = (props) => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-
+  const appDispatch = useContext(DispatchContext);
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -18,7 +19,7 @@ const HeaderLoggedOut = (props) => {
         localStorage.setItem("socialFinderUsername", response.data.username);
         localStorage.setItem("socialFinderAvatar", response.data.avatar);
 
-        props.setIsLoggedIn(true);
+        appDispatch({ type: "login" });
       } else {
         console.log("incorrect username or password");
       }

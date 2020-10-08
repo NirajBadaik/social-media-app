@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { withRouter } from "react-router-dom";
 import Page from "./Page";
 import Axios from "axios";
+import DispatchContext from "../DispatchContext";
 const CreatePost = (props) => {
   const [title, setTitle] = useState();
   const [body, setBody] = useState();
+  const appDispatch = useContext(DispatchContext);
+
   async function handleSubmit(e) {
     e.preventDefault();
     try {
@@ -13,11 +16,15 @@ const CreatePost = (props) => {
         body,
         token: localStorage.getItem("socialFinderToken"),
       });
+      appDispatch({
+        type: "flashMessages",
+        value: "Congrats, you created a new post.",
+      });
       props.history.push(`/post/${response.data}`);
       //redirect to new post url
       console.log("post created");
     } catch (e) {
-      console.log("error creating post");
+      console.log("ERROR creating post");
     }
   }
   return (

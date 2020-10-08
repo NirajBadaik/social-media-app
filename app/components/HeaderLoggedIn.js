@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import DispatchContext from "../DispatchContext";
 
 const HeaderLoggedIn = (props) => {
+  const appDispatch = useContext(DispatchContext);
   function handleLogout() {
-    props.setIsLoggedIn(false);
+    appDispatch({ type: "logout" });
     localStorage.removeItem("socialFinderToken");
     localStorage.removeItem("socialFinderUsername");
     localStorage.removeItem("socialFinderAvatar");
   }
+
   return (
     <div className="flex-row my-3 my-md-0">
       <a href="#" className="text-white mr-2 header-search-icon">
